@@ -1,5 +1,5 @@
 import React from 'react';
-import { View,StyleSheet,Text } from 'react-native';
+import { View,StyleSheet,Text ,Image} from 'react-native';
 
 const SplashScreen = ({navigation}) => {
 
@@ -11,7 +11,10 @@ const SplashScreen = ({navigation}) => {
     return(
         <View style={stylesheet.container}>
 
-            <Text style={stylesheet.heading}>LOGO</Text>
+            <Image 
+                style={stylesheet.background_image}
+                source={require('./../img/splash.png')}    
+            />
 
         </View>
     );
@@ -23,10 +26,12 @@ const stylesheet = StyleSheet.create({
         justifyContent:'center',
         alignItems:'center'
     },
-    heading:{
-        fontSize:32,
-        fontWeight:'bold'
+    background_image:{
+        position:'absolute',
+        height:'100%',
+        width:'100%'
     }
+
 });
 
 export default SplashScreen;

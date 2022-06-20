@@ -1,6 +1,8 @@
 import React,{useState} from 'react';
-import {View,StyleSheet,Text,Image,ToastAndroid} from 'react-native';
+import {View,StyleSheet,Text,Image,ToastAndroid,TouchableOpacity} from 'react-native';
 import oxygen from "../axios/oxygen";
+import Circle from '../components/Circle';
+import { AntDesign } from '@expo/vector-icons';
 
 
 var count = 0;
@@ -8,10 +10,10 @@ var count = 0;
 
 
 
-const Home = () => {
+const Home = ({navigation}) => {
 
 
-    const [oxy,setOxygen] = useState(null);
+    const [oxy,setOxygen] = useState(0);
 
     //Asynchronous function to GET data from the provided API
     async function getOxygen(){
@@ -40,13 +42,26 @@ const Home = () => {
     
     return(
         <View style={stylesheet.container}>
-            <Text style={stylesheet.heading}>Oxygen is</Text>
-            <View>{oxy?<Text style={stylesheet.subheading}>{oxy}%</Text>:<Image 
-                style={{
-                    width:100,
-                    height:100,
-                        }} 
-                source={require('./../img/hindu.png')}/>}</View>
+
+            
+            <Image 
+                style={stylesheet.background_image}
+                source={require('./../img/home.png')}    
+            />
+        
+            <Circle 
+                data={oxy}
+            />
+
+            <TouchableOpacity
+                style={stylesheet.about_btn}
+                onPress={()=>{
+                    navigation.navigate('About');
+                }}
+            >
+                <AntDesign name="infocirlce" size={30} color="#00BCD5" />
+            </TouchableOpacity>
+            
  
         </View>
     );
@@ -64,6 +79,17 @@ const stylesheet = StyleSheet.create({
     },
     subheading:{
         fontSize:72
+    },
+    background_image:{
+        position:'absolute',
+        height:'100%',
+        width:'100%'
+    },
+    about_btn:{
+        position:'absolute',
+        right:20,
+        top:50
+
     }
 
 });
