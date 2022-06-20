@@ -4,6 +4,7 @@ import { View,StyleSheet,Text,ScrollView,Image } from 'react-native';
 const About = ({navigation}) => {
 
     return(
+        <ScrollView>
         <View style={stylesheet.container}>
 
             <Image 
@@ -49,6 +50,7 @@ const About = ({navigation}) => {
             </View>
 
         </View>
+        </ScrollView>
     );
 }
 
