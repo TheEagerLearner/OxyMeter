@@ -52,6 +52,9 @@ const Home = ({navigation}) => {
             <Circle 
                 data={oxy}
             />
+            <Text
+                style={stylesheet.textheading}
+            >Oxygen purity</Text>
 
             <TouchableOpacity
                 style={stylesheet.about_btn}
@@ -90,6 +93,13 @@ const stylesheet = StyleSheet.create({
         right:20,
         top:50
 
+    },
+    textheading:{
+        fontSize:42,
+        fontWeight:'bold',
+        position:'absolute',
+        paddingTop:100
+        
     }
 
 });
