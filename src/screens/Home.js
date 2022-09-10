@@ -54,7 +54,7 @@ const Home = ({navigation}) => {
             />
             <Text
                 style={stylesheet.textheading}
-            >Oxygen purity</Text>
+            >Oxygen puurity</Text>
 
             <TouchableOpacity
                 style={stylesheet.about_btn}
